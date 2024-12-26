@@ -291,7 +291,7 @@ class ExtensionManager {
             });
         if (optExtensionId) {
             if (!this._loadedExtensions.has(optExtensionId)) {
-                throw new Error(`Unknown extension: ${optExtensionId}`);
+                return Promise.reject(new Error(`Unknown extension: ${optExtensionId}`));
             }
             return refresh(this._loadedExtensions.get(optExtensionId));
         }
